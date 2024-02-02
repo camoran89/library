@@ -5,7 +5,7 @@ module.exports = withModuleFederationPlugin({
   name: 'mfBooks',
 
   exposes: {
-    './Component': './projects/mf-books/src/app/app.component.ts',
+    './BooksModule': './projects/mf-books/src/app/books/books.module.ts',
   },
 
   shared: {
