@@ -26,10 +26,10 @@ ng generate application mf-dashboard --style=scss --routing=true
 ng generate application mf-users --style=scss --routing=true
 ```
 
-## mf-books
+## mf-resume
 
 ```console
-ng generate application mf-books --style=scss --routing=true
+ng generate application mf-resume --style=scss --routing=true
 ```
 
 ## commons-lib
@@ -54,7 +54,7 @@ Una vez instalada la librería agregaremos el uso de Module Federation a nuestro
 ```console
 ng add @angular-architects/module-federation --project mf-dashboard --port 4200 --type host
 ng add @angular-architects/module-federation --project mf-users --port 4201 --type remote
-ng add @angular-architects/module-federation --project mf-books --port 4202 --type remote
+ng add @angular-architects/module-federation --project mf-resume --port 4202 --type remote
 ```
 
 Listo, lo que hara este comando es crear unos archivos **webpack.config.js** en cada uno de nuestros MF para poder hacer uso de la federación de modulos.

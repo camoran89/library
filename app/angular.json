@@ -223,116 +223,6 @@
 				}
 			}
 		},
-		"mf-books": {
-			"projectType": "application",
-			"schematics": {
-				"@schematics/angular:component": {
-					"style": "scss"
-				}
-			},
-			"root": "projects/mf-books",
-			"sourceRoot": "projects/mf-books/src",
-			"prefix": "app",
-			"architect": {
-				"build": {
-					"builder": "ngx-build-plus:browser",
-					"options": {
-						"outputPath": "dist/mf-books",
-						"index": "projects/mf-books/src/index.html",
-						"main": "projects/mf-books/src/main.ts",
-						"polyfills": "projects/mf-books/src/polyfills.ts",
-						"tsConfig": "projects/mf-books/tsconfig.app.json",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							"projects/mf-books/src/favicon.ico",
-							"projects/mf-books/src/assets"
-						],
-						"styles": [
-							"projects/mf-books/src/styles.scss"
-						],
-						"scripts": [],
-						"extraWebpackConfig": "projects/mf-books/webpack.config.js",
-						"commonChunk": false
-					},
-					"configurations": {
-						"production": {
-							"budgets": [
-								{
-									"type": "initial",
-									"maximumWarning": "500kb",
-									"maximumError": "1mb"
-								},
-								{
-									"type": "anyComponentStyle",
-									"maximumWarning": "2kb",
-									"maximumError": "4kb"
-								}
-							],
-							"fileReplacements": [
-								{
-									"replace": "projects/mf-books/src/environments/environment.ts",
-									"with": "projects/mf-books/src/environments/environment.prod.ts"
-								}
-							],
-							"outputHashing": "all",
-							"extraWebpackConfig": "projects/mf-books/webpack.prod.config.js"
-						},
-						"development": {
-							"buildOptimizer": false,
-							"optimization": false,
-							"vendorChunk": true,
-							"extractLicenses": false,
-							"sourceMap": true,
-							"namedChunks": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve": {
-					"builder": "ngx-build-plus:dev-server",
-					"configurations": {
-						"production": {
-							"browserTarget": "mf-books:build:production",
-							"extraWebpackConfig": "projects/mf-books/webpack.prod.config.js"
-						},
-						"development": {
-							"browserTarget": "mf-books:build:development"
-						}
-					},
-					"defaultConfiguration": "development",
-					"options": {
-						"port": 4202,
-						"publicHost": "http://localhost:4202",
-						"extraWebpackConfig": "projects/mf-books/webpack.config.js"
-					}
-				},
-				"extract-i18n": {
-					"builder": "ngx-build-plus:extract-i18n",
-					"options": {
-						"browserTarget": "mf-books:build",
-						"extraWebpackConfig": "projects/mf-books/webpack.config.js"
-					}
-				},
-				"test": {
-					"builder": "@angular-devkit/build-angular:karma",
-					"options": {
-						"main": "projects/mf-books/src/test.ts",
-						"polyfills": "projects/mf-books/src/polyfills.ts",
-						"tsConfig": "projects/mf-books/tsconfig.spec.json",
-						"karmaConfig": "projects/mf-books/karma.conf.js",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							"projects/mf-books/src/favicon.ico",
-							"projects/mf-books/src/assets"
-						],
-						"styles": [
-							"projects/mf-books/src/styles.scss"
-						],
-						"scripts": []
-					}
-				}
-			}
-		},
 		"commons-lib": {
 			"projectType": "library",
 			"root": "projects/commons-lib",
@@ -360,6 +250,116 @@
 						"main": "projects/commons-lib/src/test.ts",
 						"tsConfig": "projects/commons-lib/tsconfig.spec.json",
 						"karmaConfig": "projects/commons-lib/karma.conf.js"
+					}
+				}
+			}
+		},
+		"mf-resume": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/mf-resume",
+			"sourceRoot": "projects/mf-resume/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/mf-resume",
+						"index": "projects/mf-resume/src/index.html",
+						"main": "projects/mf-resume/src/main.ts",
+						"polyfills": "projects/mf-resume/src/polyfills.ts",
+						"tsConfig": "projects/mf-resume/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/mf-resume/src/favicon.ico",
+							"projects/mf-resume/src/assets"
+						],
+						"styles": [
+							"projects/mf-resume/src/styles.scss"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/mf-resume/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/mf-resume/src/environments/environment.ts",
+									"with": "projects/mf-resume/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/mf-resume/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "mf-resume:build:production",
+							"extraWebpackConfig": "projects/mf-resume/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "mf-resume:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4202,
+						"publicHost": "http://localhost:4202",
+						"extraWebpackConfig": "projects/mf-resume/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "mf-resume:build",
+						"extraWebpackConfig": "projects/mf-resume/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/mf-resume/src/test.ts",
+						"polyfills": "projects/mf-resume/src/polyfills.ts",
+						"tsConfig": "projects/mf-resume/tsconfig.spec.json",
+						"karmaConfig": "projects/mf-resume/karma.conf.js",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/mf-resume/src/favicon.ico",
+							"projects/mf-resume/src/assets"
+						],
+						"styles": [
+							"projects/mf-resume/src/styles.scss"
+						],
+						"scripts": []
 					}
 				}
 			}

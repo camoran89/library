@@ -2,10 +2,10 @@ const { shareAll, withModuleFederationPlugin } = require('@angular-architects/mo
 
 module.exports = withModuleFederationPlugin({
 
-  name: 'mfBooks',
+  name: 'mfResume',
 
   exposes: {
-    './BooksModule': './projects/mf-books/src/app/books/books.module.ts',
+    './ResumeModule': './projects/mf-resume/src/app/resume/resume.module.ts',
   },
 
   shared: {

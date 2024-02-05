@@ -7,8 +7,8 @@ const routes: Routes = [
     loadChildren: () => import('mfUsers/UsersModule').then(m => m.UsersModule),
   },
   {
-    path: 'books',
-    loadChildren: () => import('mfBooks/BooksModule').then(m => m.BooksModule)
+    path: 'resume',
+    loadChildren: () => import('mfResume/ResumeModule').then(m => m.ResumeModule),
   }
 ];
 
