@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'resume',
     loadChildren: () => import('mfResume/ResumeModule').then(m => m.ResumeModule),
+  },
+  {
+    path: '**',
+    redirectTo: 'resume'
   }
 ];
 
