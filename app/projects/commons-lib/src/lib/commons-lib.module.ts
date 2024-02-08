@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonsLibComponent } from './commons-lib.component';
 
-
-
 @NgModule({
   declarations: [
     CommonsLibComponent

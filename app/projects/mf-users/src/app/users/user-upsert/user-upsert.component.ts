@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { UsersService } from '../users.service';
-import { User } from '../models/user';
+import { CommonsLibService, User } from '@commons-lib';
 
 @Component({
   selector: 'app-user-upsert',
@@ -19,7 +18,7 @@ export class UserUpsertComponent implements OnInit, OnDestroy {
   errorMsg!: string;
 
   constructor(private readonly fb: FormBuilder,
-    private readonly userService: UsersService) {
+    private readonly userService: CommonsLibService) {
     this.form = fb.group({
       fullname: ['', Validators.required],
       idType: ['', Validators.required],
