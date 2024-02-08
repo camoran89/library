@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { CommonsLibService, User } from '@commons-lib';
+import { CommonsLibService as userService, User } from '@commons-lib';
 
 @Component({
   selector: 'app-user-upsert',
@@ -18,8 +17,8 @@ export class UserUpsertComponent implements OnInit, OnDestroy {
   errorMsg!: string;
 
   constructor(private readonly fb: FormBuilder,
-    private readonly userService: CommonsLibService) {
-    this.form = fb.group({
+    private readonly userService: userService) {
+    this.form = this.fb.group({
       fullname: ['', Validators.required],
       idType: ['', Validators.required],
       idNumber: ['', Validators.required],
@@ -45,7 +44,7 @@ export class UserUpsertComponent implements OnInit, OnDestroy {
     let idType = this.form.get('idType')?.value;
     let idNumber = this.form.get('idNumber')?.value;
 
-    this.userService.find(idType, idNumber).subscribe((user: User) => {
+    this.userService.findById(idType, idNumber).subscribe((user: User) => {
       if (user) {
         this.form.get('fullname')?.setValue(user.fullname);
         this.form.get('idType')?.setValue(user.idType);
@@ -68,10 +67,12 @@ export class UserUpsertComponent implements OnInit, OnDestroy {
         phone: this.form.get('phone')?.value,
         vehicleId: this.form.get('vehicleId')?.value,
         vehicleType: this.form.get('vehicleType')?.value,
-        notes: this.form.get('notes')?.value
+        notes: this.form.get('notes')?.value,
+        createdAt: new Date(),
+        updatedAt: new Date()
       };
 
-      this.userService.find(user.idType, user.idNumber).subscribe((user: User) => {
+      this.userService.findById(user.idType, user.idNumber).subscribe((user: User) => {
         if (!user.isActive) {
           this.userService.upsert(user).subscribe((user: User) => {
             if (user) {

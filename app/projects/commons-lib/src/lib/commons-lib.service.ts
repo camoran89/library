@@ -17,8 +17,12 @@ export class CommonsLibService {
     return this.http.post<User>(this.apiUrl, user);
   }
 
-  find(idType: string, idNumber: string): Observable<User> {
+  findById(idType: string, idNumber: string): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/${idType}/${idNumber}`)
+  }
+
+  findByVehicleId(vehicleId: string): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/${vehicleId}`)
   }
 
   findAllActives(): Observable<Array<User>> {

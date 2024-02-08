@@ -1,1 +1,36 @@
-<p>user-list works!</p>
+<div class="pt-4">
+	<form [formGroup]="form">
+		<div class="form-floating mb-3">
+			<input formControlName="vehicleId" type="text" class="form-control" id="vehicleId" placeholder="Ex. ABC123"
+				(blur)="find()" />
+			<label for="vehicleId">Find a Vehicle</label>
+		</div>
+	</form>
+
+	<div class="card p-3">
+		<p class="h4 pb-3">Active vehicles</p>
+		<div class="row row-cols-1 row-cols-md-3 g-4" *ngFor="let user of filteredUsers">
+			<div class="col">
+				<div class="card h-100">
+					<div class="card-body">
+						<h5 class="card-title">{{ user.vehicleType }}: {{ user.vehicleId }}</h5>
+						<p class="card-text">{{ user.fullname }}</p>
+						<p class="card-text">{{ user.phone }}</p>
+						<p class="card-text">{{ user.createdAt.toLocaleString() }}</p>
+						<div class="d-flex justify-content-end">
+							<button class="btn btn-primary" (click)="onComplete(user)">Complete</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="filteredUsers.length == 0">{{ errorMsg }}</div>
+	</div>
+</div>
+
+<div class="alert alert-primary mt-5" role="alert" *ngIf="saved">
+	Vehicule was created!
+</div>
+<div class="alert alert-danger mt-5" role="alert" *ngIf="error">
+	{{ errorMsg }}
+</div>

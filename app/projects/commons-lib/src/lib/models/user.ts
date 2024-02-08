@@ -9,8 +9,12 @@ export class User {
 	vehicleType: string;
 	notes: string;
 
+	createdAt: Date;
+	updatedAt: Date;
+
 	constructor() {
 		this.isActive = false;
+
 		this.fullname = "";
 		this.idType = "";
 		this.idNumber = "";
@@ -18,5 +22,8 @@ export class User {
 		this.vehicleId = "";
 		this.vehicleType = "";
 		this.notes = "";
+
+		this.createdAt = new Date();
+		this.updatedAt = new Date();
 	}
 }
