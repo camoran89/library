@@ -10,33 +10,33 @@ namespace api.Models
         public String id { get; set; } = String.Empty;
 
         [BsonElement("isActive")]
-        bool isActive { get; set; } = true;
+        public bool isActive { get; set; } = true;
 
         [BsonElement("fullname")]
-        string fullname { get; set; } = String.Empty;
+        public string fullname { get; set; } = String.Empty;
 
         [BsonElement("idType")]
-        string idType{ get; set; } = String.Empty;
+        public string idType { get; set; } = String.Empty;
 
         [BsonElement("idNumber")]
-        string idNumber { get; set; } = String.Empty;
+        public string idNumber { get; set; } = String.Empty;
 
         [BsonElement("phone")]
-        string phone { get; set; } = String.Empty;
+        public string phone { get; set; } = String.Empty;
 
         [BsonElement("vehicleId")]
-        string vehicleId { get; set; } = String.Empty;
+        public string vehicleId { get; set; } = String.Empty;
 
         [BsonElement("vehicleType")]
-        string vehicleType { get; set; } = String.Empty;
+        public string vehicleType { get; set; } = String.Empty;
 
         [BsonElement("notes")]
-        string notes { get; set; } = String.Empty;
+        public string notes { get; set; } = String.Empty;
 
         [BsonElement("createdAt")]
-        DateTime createdAt { get; set; } = DateTime.Now;
+        public DateTime createdAt { get; set; } = DateTime.Now;
 
         [BsonElement("updatedAt")]
-        DateTime updatedAt { get; set; } = DateTime.Now;
+        public DateTime updatedAt { get; set; } = DateTime.Now;
     }
 }
