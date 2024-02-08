@@ -9,27 +9,28 @@ import { User } from './models/user';
 })
 export class CommonsLibService {
 
-  private readonly apiUrl: string = "api/users"
+  private readonly envUrl: string = "http://localhost:5260/"
+  private readonly apiUrl: string = "api/user"
 
   constructor(private readonly http: HttpClient) { }
 
   upsert(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, user);
+    return this.http.post<User>(`${this.envUrl}${this.apiUrl}`, user);
   }
 
   findById(idType: string, idNumber: string): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/${idType}/${idNumber}`)
+    return this.http.get<User>(`${this.envUrl}${this.apiUrl}/${idType}/${idNumber}`)
   }
 
   findByVehicleId(vehicleId: string): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/${vehicleId}`)
+    return this.http.get<User>(`${this.envUrl}${this.apiUrl}/${vehicleId}`)
   }
 
   findAllActives(): Observable<Array<User>> {
-    return this.http.get<Array<User>>(`${this.apiUrl}/active`)
+    return this.http.get<Array<User>>(`${this.envUrl}${this.apiUrl}/active`)
   }
 
   findAllInactives(): Observable<Array<User>> {
-    return this.http.get<Array<User>>(`${this.apiUrl}/inactive`)
+    return this.http.get<Array<User>>(`${this.envUrl}${this.apiUrl}/inactive`)
   }
 }
