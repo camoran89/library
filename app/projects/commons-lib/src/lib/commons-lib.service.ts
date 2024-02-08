@@ -28,4 +28,8 @@ export class CommonsLibService {
   findAllActives(): Observable<Array<User>> {
     return this.http.get<Array<User>>(`${this.apiUrl}/active`)
   }
+
+  findAllInactives(): Observable<Array<User>> {
+    return this.http.get<Array<User>>(`${this.apiUrl}/inactive`)
+  }
 }
