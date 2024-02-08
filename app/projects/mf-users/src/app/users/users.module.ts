@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { UserListComponent } from './user-list/user-list.component';
 import { UserUpsertComponent } from './user-upsert/user-upsert.component';
@@ -23,7 +25,10 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule
-  ]
+    CommonModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers: [],
 })
 export class UsersModule { }

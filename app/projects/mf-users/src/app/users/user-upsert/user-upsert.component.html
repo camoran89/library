@@ -1,1 +1,73 @@
-<p>user-upsert works!</p>
+<div class="pt-4">
+	<p class="h4 pb-3">Add new vehicle</p>
+	<form [formGroup]="form">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="form-floating mb-3">
+					<select formControlName="idType" class="form-select" id="idType">
+						<option value="CC">CC</option>
+						<option value="CE">CE</option>
+						<option value="TI">TI</option>
+					</select>
+					<label for="idType">Id Type</label>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-floating mb-3">
+					<input formControlName="idNumber" type="tel" class="form-control" id="idNumber" placeholder="Ex. 5334885" (blur)="find()" />
+					<label for="idNumber">Id Number</label>
+				</div>
+			</div>
+			<div class="col-md-7">
+				<div class="form-floating mb-3">
+					<input formControlName="fullname" type="text" class="form-control" id="fullname"
+						placeholder="Ex. Camilo Moran" />
+					<label for="fullname">Name</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-floating mb-3">
+					<input formControlName="phone" type="tel" class="form-control" id="phone" placeholder="Ex. 3103334455" />
+					<label for="phone">Phone</label>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-floating mb-3">
+					<select formControlName="vehicleType" class="form-select" id="vehicleType">
+						<option value="Car">Car</option>
+						<option value="Motorcycle">Motorcycle</option>
+						<option value="Bicycle">Bicycle</option>
+					</select>
+					<label for="vehicleType">Vehicle Type</label>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-floating mb-3">
+					<input formControlName="vehicleId" type="text" class="form-control" id="vehicleId" placeholder="Ex. ABC123" />
+					<label for="vehicleId">Vehicle Id</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md">
+				<div class="form-floating">
+					<textarea formControlName="notes" class="form-control" placeholder="Notes" id="notes"></textarea>
+					<label for="notes">Notes</label>
+				</div>
+			</div>
+		</div>
+		<div class="d-grid gap-1 d-md-flex justify-content-md-end py-3">
+			<button class="btn btn-primary px-4" (click)="send()" [disabled]="!form.valid">Send</button>
+			<button class="btn btn-danger px-4" (click)="clear()">Clear</button>
+		</div>
+	</form>
+</div>
+
+<div class="alert alert-primary mt-5" role="alert" *ngIf="saved">
+  Vehicule was created!
+</div>
+<div class="alert alert-danger mt-5" role="alert" *ngIf="error">
+  {{ errorMsg }}
+</div>
