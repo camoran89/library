@@ -62,6 +62,7 @@ export class UserUpsertComponent implements OnInit, OnDestroy {
   send(): void {
     if (this.form.valid) {
       let user: User = {
+        isActive: true,
         fullname: this.form.get('fullname')?.value,
         idType: this.form.get('idType')?.value,
         idNumber: this.form.get('idNumber')?.value,
@@ -72,7 +73,7 @@ export class UserUpsertComponent implements OnInit, OnDestroy {
       };
 
       this.userService.find(user.idType, user.idNumber).subscribe((user: User) => {
-        if (!user) {
+        if (!user.isActive) {
           this.userService.upsert(user).subscribe((user: User) => {
             if (user) {
               this.clear();

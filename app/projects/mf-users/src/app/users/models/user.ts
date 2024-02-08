@@ -1,4 +1,6 @@
 export class User {
+	isActive: boolean;
+
 	fullname: string;
 	idType: string;
 	idNumber: string;
@@ -8,6 +10,7 @@ export class User {
 	notes: string;
 
 	constructor() {
+		this.isActive = false;
 		this.fullname = "";
 		this.idType = "";
 		this.idNumber = "";
