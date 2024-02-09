@@ -19,28 +19,28 @@ namespace api.Controllers
         public ActionResult<List<UserModel>> findAllActives()
         {
             var users = _user.findAllActives();
-            return users is null ? NotFound() : users;
+            return users;
         }
 
         [HttpGet("inactive")]
         public ActionResult<List<UserModel>> findAllInactives()
         {
             var users = _user.findAllInactives();
-            return users is null ? NotFound() : users;
+            return users;
         }
 
         [HttpGet("{idType}/{idNumber}")]
         public ActionResult<UserModel> findById(string idType, string idNumber)
         {
             var users = _user.findById(idType, idNumber);
-            return users is null ? NotFound() : users;
+            return users;
         }
 
         [HttpGet("{vehicleId}")]
         public ActionResult<UserModel> findByVehicleId(string vehicleId)
         {
             var users = _user.findByVehicleId(vehicleId);
-            return users is null ? NotFound() : users;
+            return users;
         }
 
         [HttpPost]

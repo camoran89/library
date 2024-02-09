@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommonsLibService as userService, User } from '@commons-lib';
 
 @Component({
@@ -17,7 +18,8 @@ export class UserUpsertComponent implements OnInit, OnDestroy {
   errorMsg!: string;
 
   constructor(private readonly fb: FormBuilder,
-    private readonly userService: userService) {
+    private readonly userService: userService,
+    private readonly router: Router ) {
     this.form = this.fb.group({
       fullname: ['', Validators.required],
       idType: ['', Validators.required],
@@ -72,26 +74,43 @@ export class UserUpsertComponent implements OnInit, OnDestroy {
         updatedAt: new Date()
       };
 
-      this.userService.findById(user.idType, user.idNumber).subscribe((user: User) => {
-        if (!user.isActive) {
-          this.userService.upsert(user).subscribe((user: User) => {
-            if (user) {
+      this.userService.findById(user.idType, user.idNumber).subscribe((_user: User) => {
+        if (_user) {
+          if (!_user.isActive) {
+            this.userService.upsert(user).subscribe((__user: User) => {
+              if (__user) {
+                this.clear();
+                this.saved = true;
+  
+                setTimeout(() => {
+                  this.saved = false;
+                  this.router.navigate(['users']);
+                }, 2000);
+              }
+            });
+          } else {
+            this.clear();
+
+            this.errorMsg = "User has an assigned vehicle now."
+  
+            this.error = true;
+  
+            setTimeout(() => {
+              this.error = false;
+            }, 2000);
+          }
+        } else {
+          this.userService.upsert(user).subscribe((_user: User) => {
+            if (_user) {
               this.clear();
               this.saved = true;
 
               setTimeout(() => {
                 this.saved = false;
+                this.router.navigate(['users']);
               }, 2000);
             }
           });
-        } else {
-          this.errorMsg = "User has an assigned vehicle now."
-
-          this.error = true;
-
-          setTimeout(() => {
-            this.error = false;
-          }, 2000);
         }
       });
     }

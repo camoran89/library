@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CommonsLibService as userService, User } from '@commons-lib';
 
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -53,10 +55,13 @@ export class UserListComponent implements OnInit, OnDestroy {
 
     this.userService.findByVehicleId(vehicleId).subscribe((user: User) => {
       if (user) {
-        this.filteredUsers = new Array<User>();
-        this.filteredUsers.push(user);
+        if (user.isActive) {
+          this.filteredUsers = new Array<User>();
+          this.filteredUsers.push(user);
+        }
       } else {
         this.errorMsg = "No records found";
+        this.filteredUsers = new Array<User>();
       }
     });
   }
@@ -71,6 +76,7 @@ export class UserListComponent implements OnInit, OnDestroy {
           this.filteredUsers.push(user);
         });
       } else {
+        this.filteredUsers = new Array<User>();
         this.errorMsg = "No records found";
       }
     });
@@ -96,6 +102,12 @@ export class UserListComponent implements OnInit, OnDestroy {
           this.error = false;
         }, 2000);
       }
-    })
+
+      this.findActives();
+    });
+  }
+
+  getFormatedDate(date: Date): string {
+    return moment(date).format('MM/DD/YYYY hh:mm:ss a');
   }
 }

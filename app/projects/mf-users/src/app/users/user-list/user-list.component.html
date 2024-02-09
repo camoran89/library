@@ -9,15 +9,17 @@
 
 	<div class="card p-3">
 		<p class="h4 pb-3">Active vehicles</p>
-		<div class="row row-cols-1 row-cols-md-3 g-4" *ngFor="let user of filteredUsers">
-			<div class="col">
+		<div class="row row-cols-1 row-cols-md-3 g-4">
+			<div class="col" *ngFor="let user of filteredUsers">
 				<div class="card h-100">
 					<div class="card-body">
 						<h5 class="card-title">{{ user.vehicleType }}: {{ user.vehicleId }}</h5>
-						<p class="card-text">{{ user.fullname }}</p>
-						<p class="card-text">{{ user.phone }}</p>
-						<p class="card-text">{{ user.createdAt.toLocaleString() }}</p>
-						<div class="d-flex justify-content-end">
+						<span class="card-text">{{ user.fullname }}</span>
+						<br />
+						<span class="card-text">Phone: {{ user.phone }}</span>
+						<br />
+						<span class="card-text">{{ getFormatedDate(user.createdAt) }}</span>
+						<div class="d-flex justify-content-center pt-3">
 							<button class="btn btn-primary" (click)="onComplete(user)">Complete</button>
 						</div>
 					</div>
