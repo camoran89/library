@@ -48,5 +48,23 @@ namespace api.Services
             }
             return user;
         }
+
+        List<UserModel> IUser.findAllDistinct()
+        {
+            return _collection.Find(x => true).ToList();
+        }
+
+        List<UserModel> IUser.findAllCars()
+        {
+            return _collection.Find(x => x.vehicleType == "Car").ToList();
+        }
+        List<UserModel> IUser.findAllMotorcycle()
+        {
+            return _collection.Find(x => x.vehicleType == "Motorcycle").ToList();
+        }
+        List<UserModel> IUser.findAllBicycle()
+        {
+            return _collection.Find(x => x.vehicleType == "Bicycle").ToList();
+        }
     }
 }

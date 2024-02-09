@@ -9,5 +9,9 @@ namespace api.Interfaces
         UserModel findByVehicleId(string vehicleId);
         List<UserModel> findAllActives();
         List<UserModel> findAllInactives();
+        List<UserModel> findAllDistinct();
+        List<UserModel> findAllCars();
+        List<UserModel> findAllMotorcycle();
+        List<UserModel> findAllBicycle();
     }
 }

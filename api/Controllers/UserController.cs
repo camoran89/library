@@ -43,6 +43,34 @@ namespace api.Controllers
             return users;
         }
 
+        [HttpGet]
+        public ActionResult<List<UserModel>> findAllDistinct()
+        {
+            var users = _user.findAllDistinct();
+            return users;
+        }
+
+        [HttpGet("car")]
+        public ActionResult<List<UserModel>> findAllCars()
+        {
+            var users = _user.findAllCars();
+            return users;
+        }
+
+        [HttpGet("motorcycle")]
+        public ActionResult<List<UserModel>> findAllMotorcycle()
+        {
+            var users = _user.findAllMotorcycle();
+            return users;
+        }
+
+        [HttpGet("bicycle")]
+        public ActionResult<List<UserModel>> findAllBicycle()
+        {
+            var users = _user.findAllBicycle();
+            return users;
+        }
+
         [HttpPost]
         public ActionResult<UserModel> upsert([FromBody] UserModel user)
         {

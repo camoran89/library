@@ -1,4 +1,5 @@
 <div class="pt-4">
+	<p class="h4 pb-3">Active vehicles</p>
 	<form [formGroup]="form">
 		<div class="form-floating mb-3">
 			<input formControlName="vehicleId" type="text" class="form-control" id="vehicleId" placeholder="Ex. ABC123"
@@ -8,7 +9,6 @@
 	</form>
 
 	<div class="card p-3">
-		<p class="h4 pb-3">Active vehicles</p>
 		<div class="row row-cols-1 row-cols-md-3 g-4">
 			<div class="col" *ngFor="let user of filteredUsers">
 				<div class="card h-100">

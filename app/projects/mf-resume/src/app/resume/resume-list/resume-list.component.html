@@ -1,1 +1,54 @@
-<p>resume-list works!</p>
+<div class="pt-4">
+    <div class="card p-3">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title h4 fw-bolder">Active vehicles</p>
+                        <span class="card-text">Totals: {{ activeUsers.length }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title h4 fw-bolder">Inactive vehicles</p>
+                        <span class="card-text">Totals: {{ inactiveUsers.length }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title h4 fw-bolder">Number of customers</p>
+                        <span class="card-text">Totals: {{ totalUsers }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title h4 fw-bolder">Number of cars</p>
+                        <span class="card-text">Totals: {{ totalCars }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title h4 fw-bolder">Number of motorcycles</p>
+                        <span class="card-text">Totals: {{ totalMotorcycles }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title h4 fw-bolder">Number of bicycles</p>
+                        <span class="card-text">Totals: {{ totalBicycles }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
